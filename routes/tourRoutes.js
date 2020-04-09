@@ -2,6 +2,7 @@ const express = require('express');
 
 const {
   checkID,
+  checkBody,
   getAllTours,
   createTour,
   getTour,
@@ -15,7 +16,7 @@ router.param('id', checkID);
 
 //app.get('/api/v1/tours', getAllTours);
 //app.post('/api/v1/tours', createTour);
-router.route('/').get(getAllTours).post(createTour);
+router.route('/').get(getAllTours).post(checkBody, createTour);
 
 // app.get('/api/v1/tours/:id', getTour);
 // app.patch('/api/v1/tours/:id', updateTour);
